@@ -1,45 +1,59 @@
-# AI Anomaly Detection 
+# Unity Reinforcement Learning
 
-Development of AI algorithms for anomaly detection in private telco cloud audit logs 
+Development of a simple computer game that uses reinforcement learning to teach an agent progressing through the environment.
 
-## LSTM-Autoencoder
+## Getting Started
 
-## Convolutional Neural Network
+### Dependencies
+* Python 3.8
+* PyTorch 1.7.1 
+* ML-agents 0.28.0 
+* Unity Editor 2020.3.30r1 with ML Agents 2.0.1 package
 
-## Dense-Autoencoder
-Autoencoder with Dense layers for anomaly detection.
+### Installing
 
-### Installation
-Install all Python libraries listed in the dense_autoencoder/requirements.txt file.
-
-### Processed data fromat
-The script takes files with .csv format, with headers and comma separated data. The label column should be named 'Label', where 1 = anomaly, 0 = no anomaly. E.g.:
+* Clone the repository
+* Create en empty Unity 3D project
+* Move the repository files to the project directory
+* Install Python 3.8
+* In the project directory open terminal and create a virtual environment: 
 ```
-EventSequence,Label
-191,0
-203,1
-199,0
-278,0
+python -m venv venv
 ```
+* Activate the environment:
+```
+venv\Scripts\activate
+```
+* Install PyTorch 1.7.1
+```
+pip3 install torch~=1.7.1 -f https://download.pytorch.org/whl/torch_stable.html
+```
+* Install ML-agents 0.28.0
+```
+pip install mlagents==0.28.0
+```
+* Launch the Unity project > **Window** > **Package Manager** > **Unity Registry** > Search for **ML Agents** package > Install **ML Agents 2.0.1**
 
+### Executing program
+To use an existing ML model:
+* In Unity select the **RollerAgent** object
+* In the **Behavour Parameters** module select a model from the **Assets/ML-Models** directory
+* Press **Play** in Unity Editor
 
-### Usage
-Run the scripts from terminal with necessary arguments.
-#### Model training
-```bash
-python aytoencoder_training.py [processed data csv file path] [train data percentage]
+To train a new model:
+* In Unity select the **RollerAgent** object
+* In the **Behavour Parameters** module set the **Behavour Type** to **Default**
+* Open terminal in the project directory and activate the virtual environment:
 ```
-Example:
-```bash
-python aytoencoder_training.py /data/processed/processed.csv 90
+venv\Scripts\activate
 ```
+* Train a new model:
+```
+mlagents-learn <path to config file, e.g. config/new_config.yaml> --run-id=<unique name, e.g. run1>
+```
+* Press **Play** in Unity Editor
+* The model file will be saved in **results/_run-id_** directory with **.onnx** extension
 
-#### Model testing
-```bash
-python aytoencoder_testing.py [model .h5 file path]  -t[anomaly detection threshold] (optional)
-```
+## Help
 
-Example:
-```bash
-python aytoencoder_testing.py dense_model.h5 -t 130
-```
+[ML-Agents docummentation](https://github.com/Unity-Technologies/ml-agents/tree/release_19_docs/docs)
