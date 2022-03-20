@@ -15,6 +15,7 @@ Development of a simple computer game that uses reinforcement learning to teach 
 * Clone the repository
 * Create en empty Unity 3D project
 * Move the repository files to the project directory
+* Add one of the existing scenes from **Assets/Scenes** to the project Hierarchy
 * Install Python 3.8
 * In the project directory open terminal and create a virtual environment: 
 ```
