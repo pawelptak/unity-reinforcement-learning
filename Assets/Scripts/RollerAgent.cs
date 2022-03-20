@@ -37,8 +37,8 @@ public class RollerAgent : Agent
 
     public override void OnEpisodeBegin()
     {
-		startPosition = new Vector3(Random.Range(-4f, 4f), -7.03f, Random.Range(2f, 4f)); // simple lvl
-		//startPosition = new Vector3(Random.Range(-9f, -11f), 0, Random.Range(-5f, 4f)); // complicated lvl
+		//startPosition = new Vector3(Random.Range(-4f, 4f), -7.03f, Random.Range(2f, 4f)); // simple lvl
+		startPosition = new Vector3(Random.Range(-9f, -11f), 0, Random.Range(-5f, 4f)); // complicated lvl
 		
 		
 		rBody.angularVelocity = Vector3.zero;
