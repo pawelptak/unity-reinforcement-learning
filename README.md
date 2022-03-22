@@ -50,7 +50,7 @@ venv\Scripts\activate
 ```
 * Train a new model:
 ```
-mlagents-learn <path to config file, e.g. config/new_config.yaml> --run-id=<unique name, e.g. run1>
+mlagents-learn <(optional) path to config file, e.g. config/new_config.yaml> --run-id=<unique name, e.g. run1>
 ```
 * Press **Play** in Unity Editor
 * The model file will be saved in **results/_run-id_** directory with **.onnx** extension
