@@ -42,7 +42,7 @@ To use an existing ML model:
 * Press **Play** in Unity Editor
 
 To train a new model:
-* In Unity select the **RollerAgent** object
+* In Unity select the **Agent** object
 * In the **Behavour Parameters** module set the **Behavour Type** to **Default**
 * Open terminal in the project directory and activate the virtual environment:
 ```
