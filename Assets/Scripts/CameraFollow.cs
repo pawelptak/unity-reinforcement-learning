@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
@@ -17,7 +15,8 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
-        Vector3 newPos = targetObject.transform.position + cameraOffset;
-		transform.position = newPos;
+        Vector3 newPos = targetObject.transform.position + cameraOffset;     
+        transform.position = newPos;
+        //transform.Rotate(targetObject.rotation);
     }
 }

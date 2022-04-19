@@ -37,8 +37,8 @@ public class RollerAgent : Agent
 
     public override void OnEpisodeBegin()
     {
-		//startPosition = new Vector3(Random.Range(-4f, 4f), -7.03f, Random.Range(2f, 4f)); // simple lvl
-		startPosition = new Vector3(Random.Range(-9f, -11f), 0, Random.Range(-5f, 4f)); // complicated lvl
+		startPosition = new Vector3(Random.Range(-4f, 4f), -7f, Random.Range(2f, 4f)); // simple lvl
+		//startPosition = new Vector3(Random.Range(-9f, -11f), 0, Random.Range(-5f, 4f)); // complicated lvl
 		
 		
 		rBody.angularVelocity = Vector3.zero;
@@ -46,18 +46,6 @@ public class RollerAgent : Agent
 		transform.localPosition = startPosition;
 		trackCheckpoints.ResetCheckpoints();
 
-	   //// If the Agent fell, zero its momentum
-	   // if (this.transform.localPosition.y < 0)
-	   // {
-	   //     this.rBody.angularVelocity = Vector3.zero;
-	   //     this.rBody.velocity = Vector3.zero;
-	   //     this.transform.localPosition = startPosition;
-	   // }
-
-		// Move the target to a new spot
-		//Target.localPosition = new Vector3(Random.value * 8 - 4,
-  //                                         0.5f,
-		//								   Random.value * 8 - 4);
     }
 	
 	public override void CollectObservations(VectorSensor sensor)
@@ -93,30 +81,58 @@ public class RollerAgent : Agent
 		//sensor.AddObservation(rBody.velocity.x);
 		//sensor.AddObservation(rBody.velocity.z);
 	}
-	
+
+
+	public void MoveAgent(ActionBuffers actionBuffers)
+	{
+		var dirToGo = Vector3.zero;
+		var rotateDir = Vector3.zero;
+
+
+		int movement = actionBuffers.DiscreteActions[0];
+		// Get the action index for jumping
+		int rotation = actionBuffers.DiscreteActions[1];
+		//var action = act[0];
+
+		switch (movement)
+		{
+			case 1:
+				dirToGo = transform.forward * 1f;
+				break;
+			case 2:
+				dirToGo = transform.forward * -1f;
+				break;
+			case 3:
+				dirToGo = transform.right * -0.75f;
+				break;
+			case 4:
+				dirToGo = transform.right * 0.75f;
+				break;
+		}
+
+		switch (rotation)
+		{
+			case 1:
+				rotateDir = transform.up * 1f;
+				break;
+			case 2:
+				rotateDir = transform.up * -1f;
+				break;
+		}
+
+		transform.Rotate(rotateDir, Time.fixedDeltaTime * 200f);
+		rBody.AddForce(dirToGo * movingForce,
+			ForceMode.VelocityChange);
+	}
+
 	public override void OnActionReceived(ActionBuffers actionBuffers)
 	{
 		// Actions, size = 2
-		Vector3 controlSignal = Vector3.zero;
-		controlSignal.x = actionBuffers.ContinuousActions[0];
-		controlSignal.z = actionBuffers.ContinuousActions[1];
-		rBody.AddForce(controlSignal * movingForce);
-
-		// Rewards
-		//float distanceToTarget = Vector3.Distance(this.transform.localPosition, Target.localPosition);
-
-		// Reached target
-		//if (distanceToTarget < 1.42f)
-		//{
-		//	SetReward(1.0f);
-		//	EndEpisode();
-		//}
-
-		//// Fell off platform
-		//else if (this.transform.localPosition.y < 0)
-		//{
-		//	EndEpisode();
-		//}
+		//Vector3 controlSignal = Vector3.zero;
+		//controlSignal.x = actionBuffers.ContinuousActions[0];
+		//controlSignal.z = actionBuffers.ContinuousActions[1];
+		//rBody.AddForce(controlSignal * movingForce);
+		MoveAgent(actionBuffers);
 
 		if (nextCheckpoint == null)
         {
@@ -128,9 +144,29 @@ public class RollerAgent : Agent
 	
 	public override void Heuristic(in ActionBuffers actionsOut)
 	{
-		var continuousActionsOut = actionsOut.ContinuousActions;
-		continuousActionsOut[0] = Input.GetAxis("Horizontal");
-		continuousActionsOut[1] = Input.GetAxis("Vertical");
+		//var continuousActionsOut = actionsOut.ContinuousActions;
+		//continuousActionsOut[0] = Input.GetAxis("Horizontal");
+		//continuousActionsOut[1] = Input.GetAxis("Vertical");
+		var discreteActionsOut = actionsOut.DiscreteActions;
+		if (Input.GetKey(KeyCode.D))
+		{
+			discreteActionsOut[1] = 1;
+		}
+		else if (Input.GetKey(KeyCode.A))
+		{
+			discreteActionsOut[1] = 2;
+		}
+
+		if (Input.GetKey(KeyCode.W))
+		{
+			discreteActionsOut[0] = 1;
+		}
+		else if (Input.GetKey(KeyCode.S))
+		{
+			discreteActionsOut[0] = 2;
+		}
+
+
 	}
 	
 	//private void OnTriggerEnter(Collider other){
