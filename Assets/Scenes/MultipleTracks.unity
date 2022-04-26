@@ -4166,7 +4166,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 430359120}
   movingForce: 10
 --- !u!54 &101407099
@@ -10594,7 +10594,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 868132646}
   movingForce: 10
 --- !u!54 &335480434
@@ -16738,7 +16738,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 1865323721}
   movingForce: 10
 --- !u!54 &553289347
@@ -18218,7 +18218,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 1506958754}
   movingForce: 10
 --- !u!54 &600791105
@@ -20094,7 +20094,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 1185835692}
   movingForce: 10
 --- !u!54 &657861162
@@ -26410,7 +26410,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 1160776111}
   movingForce: 10
 --- !u!54 &862247514
@@ -26616,7 +26616,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 263674838}
   movingForce: 10
 --- !u!54 &863361890
@@ -32152,7 +32152,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 1245804530}
   movingForce: 10
 --- !u!54 &1061615416
@@ -33104,7 +33104,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 1533505034}
   movingForce: 10
 --- !u!54 &1081418898
@@ -35586,7 +35586,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 219800701}
   movingForce: 10
 --- !u!54 &1169557683
@@ -37462,7 +37462,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 1863843866}
   movingForce: 10
 --- !u!54 &1219867584
@@ -38778,7 +38778,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 76894704}
   movingForce: 10
 --- !u!54 &1254422328
@@ -39054,7 +39054,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 1688517257}
   movingForce: 10
 --- !u!54 &1255988579
@@ -40424,7 +40424,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 1674684724}
   movingForce: 10
 --- !u!54 &1300005218
@@ -40832,7 +40832,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 1587834523}
   movingForce: 10
 --- !u!54 &1305610208
@@ -41450,7 +41450,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 376712516}
   movingForce: 10
 --- !u!54 &1329087451
@@ -42092,7 +42092,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 824025984}
   movingForce: 10
 --- !u!54 &1346780241
@@ -43984,7 +43984,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 124065445}
   movingForce: 10
 --- !u!54 &1409879566
@@ -48200,7 +48200,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 76122963}
   movingForce: 10
 --- !u!54 &1552518740
@@ -49524,7 +49524,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 117326648}
   movingForce: 10
 --- !u!54 &1605940100
@@ -54625,7 +54625,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 1896912722}
   movingForce: 10
 --- !u!54 &1732935568
@@ -55975,7 +55975,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 912531542}
   movingForce: 10
 --- !u!54 &1762455201
@@ -60664,7 +60664,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 1273229770}
   movingForce: 10
 --- !u!54 &1969896727
@@ -63318,7 +63318,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 564527460}
   movingForce: 10
 --- !u!54 &2038689130
@@ -63734,7 +63734,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 1563532078}
   movingForce: 10
 --- !u!54 &2052241702
