@@ -2181,7 +2181,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 50000
+  MaxStep: 100000
   trackCheckpoints: {fileID: 1796207583}
   movingForce: 10
 --- !u!54 &1511520776
