@@ -14,9 +14,11 @@ public class RollerAgent : Agent
 
 	private Rigidbody rBody;
 	private Checkpoint nextCheckpoint;
+	private float initialTime;
 
-    public override void Initialize()
+	public override void Initialize()
     {
+		initialTime = Time.time;
 		rBody = GetComponent<Rigidbody>();
 		trackCheckpoints.OnCorrectCheckpoint += TrackCheckpoints_OnCarCorrectCheckpoint;
 		trackCheckpoints.OnWrongCheckpoint += TrackCheckpoints_OnCarWrongCheckpoint;
@@ -37,8 +39,8 @@ public class RollerAgent : Agent
 
     public override void OnEpisodeBegin()
     {
-		//startPosition = new Vector3(Random.Range(-4f, 4f), -7.03f, Random.Range(2f, 4f)); // simple lvl
-		startPosition = new Vector3(Random.Range(-9f, -11f), 0, Random.Range(-5f, 4f)); // complicated lvl
+		startPosition = new Vector3(Random.Range(-4f, 4f), -7.03f, Random.Range(2f, 4f)); // simple lvl
+		//startPosition = new Vector3(Random.Range(-9f, -11f), 0, Random.Range(-5f, 4f)); // complicated lvl
 		
 		
 		rBody.angularVelocity = Vector3.zero;
@@ -120,7 +122,8 @@ public class RollerAgent : Agent
 
 		if (nextCheckpoint == null)
         {
-			Debug.Log("Track finished.");
+			Debug.Log($"Finished. Time: {Time.time - initialTime:0.00}s. Score: {GetCumulativeReward()}");
+			initialTime = Time.time;
 			EndEpisode();
         }
 
