@@ -10,7 +10,7 @@ public class TrackCheckpoints : MonoBehaviour
 
 	public event EventHandler OnCorrectCheckpoint;
 	public event EventHandler OnWrongCheckpoint;
-	
+
 	private void Awake(){
 		Transform checkpointsTransform = transform.Find("Checkpoints");
 		checkpointList = new List<Checkpoint>();
@@ -27,7 +27,6 @@ public class TrackCheckpoints : MonoBehaviour
 	public void PlayerThroughCheckpoint(Checkpoint checkpoint){
 		if (checkpointList.IndexOf(checkpoint) == nextCheckpointIndex){
 			// correct checkpoint
-			//nextCheckpointIndex = (nextCheckpointIndex + 1)%checkpointList.Count; // support for multiple laps
 			nextCheckpointIndex++;
 			//Debug.Log("Correct checkpoint");
 			OnCorrectCheckpoint?.Invoke(this, EventArgs.Empty);

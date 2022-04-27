@@ -8,7 +8,6 @@ using Unity.MLAgents.Actuators;
 public class RollerAgent : Agent
 {
 	[SerializeField] private TrackCheckpoints trackCheckpoints;
-	//public Transform Target;
 	private Vector3 startPosition;
 	public float movingForce = 10;
 
@@ -41,25 +40,11 @@ public class RollerAgent : Agent
     {
 		startPosition = new Vector3(Random.Range(-4f, 4f), -7.03f, Random.Range(2f, 4f)); // simple lvl
 		//startPosition = new Vector3(Random.Range(-9f, -11f), 0, Random.Range(-5f, 4f)); // complicated lvl
-		
-		
+				
 		rBody.angularVelocity = Vector3.zero;
 		rBody.velocity = Vector3.zero;
 		transform.localPosition = startPosition;
 		trackCheckpoints.ResetCheckpoints();
-
-	   //// If the Agent fell, zero its momentum
-	   // if (this.transform.localPosition.y < 0)
-	   // {
-	   //     this.rBody.angularVelocity = Vector3.zero;
-	   //     this.rBody.velocity = Vector3.zero;
-	   //     this.transform.localPosition = startPosition;
-	   // }
-
-		// Move the target to a new spot
-		//Target.localPosition = new Vector3(Random.value * 8 - 4,
-  //                                         0.5f,
-		//								   Random.value * 8 - 4);
     }
 	
 	public override void CollectObservations(VectorSensor sensor)
@@ -68,34 +53,36 @@ public class RollerAgent : Agent
 		nextCheckpoint = trackCheckpoints.GetNextCheckpoint();
 
 		Vector3 checkpointForward = Vector3.zero;
+		Vector3 checkpointPosition = Vector3.zero;
 
-		//vector to the next checkpoint
-		if (nextCheckpoint != null)
-        {
-			toNextCheckpoint = nextCheckpoint.transform.position - transform.position;
-			checkpointForward = nextCheckpoint.transform.forward;
+
+		if (nextCheckpoint != null){ 
+		toNextCheckpoint = nextCheckpoint.transform.position - transform.position;
+		checkpointForward = nextCheckpoint.transform.forward;
 		}
 
-		sensor.AddObservation(toNextCheckpoint.normalized);
+		sensor.AddObservation(toNextCheckpoint);
 
-		float directionDot = Vector3.Dot(transform.forward, checkpointForward);
-		sensor.AddObservation(directionDot);
-		//Debug.Log(directionDot);
+		//float directionDot = Vector3.Dot(transform.forward, checkpointForward);
+		//sensor.AddObservation(directionDot);
+
+		//agents position
+		//sensor.AddObservation(transform.position.normalized);
+
+        //agents velocity
+        //sensor.AddObservation(rBody.velocity.normalized);
+
+        //distance to nearest checkpoint
+        //sensor.AddObservation(toNextCheckpoint.magnitude);
 
 
-		//distance to nearest checkpoint
-		//sensor.AddObservation(toNextCheckpoint.magnitude);
+        //// Target and Agent positions
+        //sensor.AddObservation(nextCheckpoint.transform.position);
+        //sensor.AddObservation(this.transform.localPosition);
 
 
-		//// Target and Agent positions
-		//sensor.AddObservation(nextCheckpoint.transform.position);
-		//sensor.AddObservation(this.transform.localPosition);
+    }
 
-		//// Agent velocity
-		//sensor.AddObservation(rBody.velocity.x);
-		//sensor.AddObservation(rBody.velocity.z);
-	}
-	
 	public override void OnActionReceived(ActionBuffers actionBuffers)
 	{
 		// Actions, size = 2
@@ -104,21 +91,6 @@ public class RollerAgent : Agent
 		controlSignal.z = actionBuffers.ContinuousActions[1];
 		rBody.AddForce(controlSignal * movingForce);
 
-		// Rewards
-		//float distanceToTarget = Vector3.Distance(this.transform.localPosition, Target.localPosition);
-
-		// Reached target
-		//if (distanceToTarget < 1.42f)
-		//{
-		//	SetReward(1.0f);
-		//	EndEpisode();
-		//}
-
-		//// Fell off platform
-		//else if (this.transform.localPosition.y < 0)
-		//{
-		//	EndEpisode();
-		//}
 
 		if (nextCheckpoint == null)
         {
