@@ -1,6 +1,10 @@
+
+
 # Unity Reinforcement Learning
 
 Development of a simple computer game that uses reinforcement learning to teach an agent progressing through the environment.
+
+<img src="https://user-images.githubusercontent.com/52631916/183151196-cc9a7ec0-e6a9-4a4d-9c28-fb3b982da867.png" alt="Track" width="500"/>
 
 ## Getting Started
 
