@@ -45,6 +45,8 @@ To use an existing ML model:
 * In the **Behavour Parameters** module select a model from the **Assets/ML-Models** directory
 * Press **Play** in Unity Editor
 
+<img src="https://user-images.githubusercontent.com/52631916/183245626-cd8c2c2f-a687-473f-88e1-23f6525d8ba0.gif" alt="Track" width="400"/>
+
 To train a new model:
 * In Unity select the **Agent** object
 * In the **Behavour Parameters** module set the **Behavour Type** to **Default**
@@ -58,8 +60,6 @@ mlagents-learn <(optional) path to config file, e.g. config/new_config.yaml> --r
 ```
 * Press **Play** in Unity Editor
 * The model file will be saved in **results/_run-id_** directory with **.onnx** extension
-
-<img src="https://user-images.githubusercontent.com/52631916/183245626-cd8c2c2f-a687-473f-88e1-23f6525d8ba0.gif" alt="Track" width="400"/>
 
 ## Help
 
